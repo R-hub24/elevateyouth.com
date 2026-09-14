@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ئیلیڤلەتی گەنجان - Elevate Youth</title>
+    <!-- هێنانی فۆنتی Noto Kufi Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Kufi Arabic', sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* بانەری سەوز لە لای چەپ بە درێژی */
+        .sidebar {
+            width: 280px;
+            background-color: #2ecc71;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4);
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+        }
+
+        .sidebar h2 {
+            color: #121212;
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .sidebar-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .sidebar-links a {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            padding: 14px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            font-size: 14px;
+        }
+
+        .sidebar-links a:hover {
+            background-color: #27ae60;
+            color: #121212;
+            transform: translateY(-2px);
+        }
+
+        /* بەشی ناوەندی بۆ فۆرم و چوارچێوەکە */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #1e1e1e;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid #2e2e2e;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            color: #2ecc71;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #333333;
+            border-radius: 6px;
+            background-color: #2a2a2a;
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            font-family: 'Noto Kufi Arabic', sans-serif;
+        }
+
+        .form-group select:focus {
+            border-color: #2ecc71;
+        }
+
+        optgroup {
+            background-color: #1e1e1e;
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        option {
+            background-color: #2a2a2a;
+            color: #ffffff;
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #2ecc71;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+            font-family: 'Noto Kufi Arabic', sans-serif;
+        }
+
+        .btn-submit:hover {
+            background-color: #27ae60;
+        }
+
+        /* چوارچێوەی نمایشکردنی ئەنجام (Result Container) */
+        .result-box {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #2a2a2a;
+            border: 1px solid #2ecc71;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result-box h3 {
+            color: #2ecc71;
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+        }
+
+        .result-item {
+            font-size: 14px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .result-item span {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        /* ڕێکخستنی شاشە بچووکەکان (مۆبایل) */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                padding: 15px;
+            }
+            .sidebar h2 {
+                display: none;
+            }
+            .sidebar-links {
+                flex-direction: row;
+                width: auto;
+                gap: 10px;
+            }
+            .sidebar-links a {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- بانەری سەوزی درێژ لە لای چەپ -->
+    <div class="sidebar">
+        <h2>ئیلیڤلەتی گەنجان</h2>
+        <div class="sidebar-links">
+            <a href="file:///C:/Users/Hcc/Desktop/zankoins.html" target="_blank">زانکۆ و پەیمانگاکان</a>
+            <a href="file:///C:/Users/Hcc/Desktop/infrmation.html" target="_blank">زانیاری دەربارەی نمرە</a>
+        </div>
+    </div>
+
+    <!-- بەشی ناوەندی و چوارچێوەی فۆرمەکە -->
+    <div class="main-content">
+        <div class="container">
+            <div class="header">
+                <h1>تۆمارکردنی زانیاری خوێندکاران</h1>
+            </div>
+
+            <form id="loginForm">
+                
+                <!-- درۆپ داونی یەکەم: ناوی زانکۆکان (ئارەزوومەندانە) -->
+                <div class="form-group">
+                    <label for="university">ناوی زانکۆکانی هەرێمی کوردستان:</label>
+                    <select id="university" name="university">
+                        <option value="" disabled selected>زانکۆی خۆت هەڵبژێرە (ئارەزوومەندانە)</option>
+                        <option value="زانکۆی سەلاحەدین - هەولێر">زانکۆی سەلاحەدین - هەولێر</option>
+                        <option value="زانکۆی تەکنیکی هەولێر">زانکۆی تەکنیکی هەولێر</option>
+                        <option value="زانکۆی پزیشکی هەولێر">زانکۆی پزیشکی هەولێر</option>
+                        <option value="زانکۆی سلێمانی">زانکۆی سلێمانی</option>
+                        <option value="زانکۆی تەکنیکی سلێمانی">زانکۆی تەکنیکی سلێمانی</option>
+                        <option value="زانکۆی هەڵەبجە">زانکۆی هەڵەبجە</option>
+                        <option value="زانکۆی گەرمیان (کەلار/خانەقین)">زانکۆی گەرمیان (کەلار/خانەقین)</option>
+                        <option value="زانکۆی ڕاپەڕین (ڕانیە/قەڵادزێ)">زانکۆی ڕاپەڕین (ڕانیە/قەڵادزێ)</option>
+                        <option value="زانکۆی چەرموو (چەمچەماڵ)">زانکۆی چەرموو (چەمچەماڵ)</option>
+                        <option value="زانکۆی دهۆک">زانکۆی دهۆک</option>
+                        <option value="زانکۆی تەکنیکی دهۆک">زانکۆی تەکنیکی دهۆک</option>
+                        <option value="زانکۆی زاخۆ">زانکۆی زاخۆ</option>
+                        <option value="زانکۆی ئاکرێ بۆ زانستە تەواوکارییەکان">زانکۆی ئاکرێ بۆ زانستە تەواوکارییەکان</option>
+                        <option value="زانکۆی کۆیە">زانکۆی کۆیە</option>
+                        <option value="زانکۆی سۆران">زانکۆی سۆران</option>
+                        <option value="زانکۆی کوردستان - هەولێر">زانکۆی کوردستان - هەولێر</option>
+                    </select>
+                </div>
+
+                <!-- درۆپ داونی دووەم: سەرجەم کۆلێج و بەشەکانی زانکۆکان (ئارەزوومەندانە) -->
+                <div class="form-group">
+                    <label for="college_dept">سەرجەم کۆلێج و بەشەکانی زانکۆکان:</label>
+                    <select id="college_dept" name="college_dept">
+                        <option value="" disabled selected>کۆلێج و بەش هەڵبژێرە (ئارەزوومەندانە)</option>
+                        
+                        <optgroup label="کۆلێجە پزیشکییەکان">
+                            <option value="کۆلێجی پزیشکی - بەشی پزیشکی گشتی">کۆلێجی پزیشکی - بەشی پزیشکی گشتی</option>
+                            <option value="کۆلێجی پزیشکی ددان - بەشی پزیشکی ددان">کۆلێجی پزیشکی ددان - بەشی پزیشکی ددان</option>
+                            <option value="کۆلێجی دەرمانسازی - بەشی دەرمانسازی">کۆلێجی دەرمانسازی - بەشی دەرمانسازی</option>
+                            <option value="کۆلێجی پەرستاری - بەشی پەرستاری">کۆلێجی پەرستاری - بەشی پەرستاری</option>
+                            <option value="کۆلێجی زانستە تەندروستییەکان - بەشی شیکاری بالۆجی">کۆلێجی زانستە تەندروستییەکان - بەشی شیکاری بالۆجی</option>
+                            <option value="کۆلێجی زانستە تەندروستییەکان - بەشی بێهۆشکاری">کۆلێجی زانستە تەندروستییەکان - بەشی بێهۆشکاری</option>
+                            <option value="کۆلێجی زانستە تەندروستییەکان - بەشی تیشک و ڕادیۆلۆجی">کۆلێجی زانستە تەندروستییەکان - بەشی تیشک و ڕادیۆلۆجی</option>
+                        </optgroup>
+
+                        <optgroup label="کۆلێجە ئەندازیاری و تەکنەلۆژییەکان">
+                            <option value="کۆلێجی ئەندازیاری - بەشی کۆمپیوتەر">کۆلێجی ئەندازیاری - بەشی کۆمپیوتەر</option>
+                            <option value="کۆلێجی ئەندازیاری - بەشی شارستانی">کۆلێجی ئەندازیاری - بەشی شارستانی</option>
+                            <option value="کۆلێجی ئەندازیاری - بەشی تەلارسازی">کۆلێجی ئەندازیاری - بەشی تەلارسازی</option>
+                            <option value="کۆلێجی ئەندازیاری - بەشی کارەبا">کۆلێجی ئەندازیاری - بەشی کارەبا</option>
+                            <option value="کۆلێجی ئەندازیاری - بەشی میخانیک">کۆلێجی ئەندازیاری - بەشی میخانیک</option>
+                            <option value="کۆلێجی ئەندازیاری - بەشی نەوت">کۆلێجی ئەندازیاری - بەشی نەوت</option>
+                            <option value="کۆلێجی ئەندازیاری - بەشی سۆفتوێر">کۆلێجی ئەندازیاری - بەشی سۆفتوێر</option>
+                            <option value="کۆلێجی زانیاری تەکنەلۆژیا - بەشی IT">کۆلێجی زانیاری تەکنەلۆژیا - بەشی IT</option>
+                        </optgroup>
+
+                        <optgroup label="کۆلێجەکانی زانست">
+                            <option value="کۆلێجی زانست - بەشی بایۆلۆجی (زیاندەوەر زانی)">کۆلێجی زانست - بەشی بایۆلۆجی (زیاندەوەر زانی)</option>
+                            <option value="کۆلێجی زانست - بەشی کیمیا">کۆلێجی زانست - بەشی کیمیا</option>
+                            <option value="کۆلێجی زانست - بەشی فیزیا">کۆلێجی زانست - بەشی فیزیا</option>
+                            <option value="کۆلێجی زانست - بەشی بیرکاری">کۆلێجی زانست - بەشی بیرکاری</option>
+                            <option value="کۆلێجی زانست - بەشی زەویناسی (جیۆلۆجی)">کۆلێجی زانست - بەشی زەویناسی (جیۆلۆجی)</option>
+                            <option value="کۆلێجی زانست - بەشی زانستی کۆمپیوتەر">کۆلێجی زانست - بەشی زانستی کۆمپیوتەر</option>
+                        </optgroup>
+
+                        <optgroup label="کۆلێجە مرۆڤایەتی و کارگێڕییەکان">
+                            <option value="کۆلێجی یاسا - بەشی یاسا">کۆلێجی یاسا - بەشی یاسا</option>
+                            <option value="کۆلێجی زانستە ڕامیارییەکان - بەشی زانستە ڕامیارییەکان">کۆلێجی زانستە ڕامیارییەکان - بەشی زانستە ڕامیارییەکان</option>
+                            <option value="کۆلێجی کارگێڕی و ئابووری - بەشی کارگێڕی کار">کۆلێجی کارگێڕی و ئابووری - بەشی کارگێڕی کار</option>
+                            <option value="کۆلێجی کارگێڕی و ئابووری - بەشی ژمێریاری">کۆلێجی کارگێڕی و ئابووری - بەشی ژمێریاری</option>
+                            <option value="کۆلێجی کارگێڕی و ئابووری - بەشی ئابووری">کۆلێجی کارگێڕی و ئابووری - بەشی ئابووری</option>
+                            <option value="کۆلێجی کارگێڕی و ئابووری - بەشی ئامار">کۆلێجی کارگێڕی و ئابووری - بەشی ئامار</option>
+                            <option value="کۆلێجی زمان - بەشی زمانی ئینگلیزی">کۆلێجی زمان - بەشی زمانی ئینگلیزی</option>
+                            <option value="کۆلێجی زمان - بەشی زمانی کوردی">کۆلێجی زمان - بەشی زمانی کوردی</option>
+                            <option value="کۆلێجی زمان - بەشی زمانی عەرەبی">کۆلێجی زمان - بەشی زمانی عەرەبی</option>
+                            <option value="کۆلێجی زمان - بەشە زمانە جیهانییەکان">کۆلێجی زمان - بەشە زمانە جیهانییەکان</option>
+                            <option value="کۆلێجی پەروەردە - بەشی مێژوو">کۆلێجی پەروەردە - بەشی مێژوو</option>
+                            <option value="کۆلێجی پەروەردە - بەشی جوگرافیا">کۆلێجی پەروەردە - بەشی جوگرافیا</option>
+                            <option value="کۆلێجی پەروەردە - بەشی دەروونناسی">کۆلێجی پەروەردە - بەشی دەروونناسی</option>
+                            <option value="کۆلێجی زانستە ئیسلامییەکان - بەشی خوێندنی ئیسلامی">کۆلێجی زانستە ئیسلامییەکان - بەشی خوێندنی ئیسلامی</option>
+                            <option value="کۆلێجی زانستە کشتوکاڵییەکان - بەشە کشتوکاڵییەکان">کۆلێجی زانستە کشتوکاڵییەکان - بەشە کشتوکاڵییەکان</option>
+                            <option value="کۆلێجی پەروەردەی وەرزش - بەشی پەروەردەی وەرزش">کۆلێجی پەروەردەی وەرزش - بەشی پەروەردەی وەرزش</option>
+                            <option value="کۆلێجی هونەرە جوانەکان - بەشەکانی شێوەکاری و شانۆ و موزیک">کۆلێجی هونەرە جوانەکان - بەشەکانی شێوەکاری و شانۆ و موزیک</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <!-- درۆپ داونی سێهەم: پەیمانگاکانی سنوری وەزارەت (ئارەزوومەندانە) -->
+                <div class="form-group">
+                    <label for="institute">پەیمانگاکانی سنوری وەزارەتی خوێندنی باڵا:</label>
+                    <select id="institute" name="institute">
+                        <option value="" disabled selected>پەیمانگا هەڵبژێرە (ئارەزوومەندانە)</option>
+                        <optgroup label="پەیمانگە تەکنیکییەکانی پارێزگای هەولێر">
+                            <option value="پەیمانگەی تەکنیکی هەولێر">پەیمانگەی تەکنیکی هەولێر</option>
+                            <option value="پەیمانگەی تەکنیکی کۆیە">پەیمانگەی تەکنیکی کۆیە</option>
+                            <option value="پەیمانگەی تەکنیکی خەبات">پەیمانگەی تەکنیکی خەبات</option>
+                            <option value="پەیمانگەی تەکنیکی سۆران">پەیمانگەی تەکنیکی سۆران</option>
+                            <option value="پەیمانگەی تەکنیکی مێرگەسۆر">پەیمانگەی تەکنیکی مێرگەسۆر</option>
+                            <option value="پەیمانگەی تەکنیکی شقڵاوە">پەیمانگەی تەکنیکی شقڵاوە</option>
+                        </optgroup>
+                        <optgroup label="پەیمانگە تەکنیکییەکانی پارێزگای سلێمانی">
+                            <option value="پەیمانگەی تەکنیکی سلێمانی">پەیمانگەی تەکنیکی سلێمانی</option>
+                            <option value="پەیمانگەی تەکنیکی کارگێڕی سلێمانی">پەیمانگەی تەکنیکی کارگێڕی سلێمانی</option>
+                            <option value="پەیمانگەی تەکنیکی چەمچەماڵ">پەیمانگەی تەکنیکی چەمچەماڵ</option>
+                            <option value="پەیمانگەی تەکنیکی کەلار">پەیمانگەی تەکنیکی کەلار</option>
+                            <option value="پەیمانگەی تەکنیکی کەرکووک (کفری)">پەیمانگەی تەکنیکی کەرکووک (کفری)</option>
+                            <option value="پەیمانگەی تەکنیکی هەڵەبجە">پەیمانگەی تەکنیکی هەڵەبجە</option>
+                            <option value="پەیمانگەی تەکنیکی دووکان">پەیمانگەی تەکنیکی دووکان</option>
+                            <option value="پەیمانگەی تەکنیکی دەربەندیخان">پەیمانگەی تەکنیکی دەربەندیخان</option>
+                            <option value="پەیمانگەی تەکنیکی بەختیاری">پەیمانگەی تەکنیکی بەختیاری</option>
+                        </optgroup>
+                        <optgroup label="پەیمانگە تەکنیکییەکانی پارێزگای دهۆک">
+                            <option value="پەیمانگەی تەکنیکی دهۆک">پەیمانگەی تەکنیکی دهۆک</option>
+                            <option value="پەیمانگەی تەکنیکی کارگێڕی دهۆک">پەیمانگەی تەکنیکی کارگێڕی دهۆک</option>
+                            <option value="پەیمانگەی تەکنیکی ئاکرێ">پەیمانگەی تەکنیکی ئاکرێ</option>
+                            <option value="پەیمانگەی تەکنیکی زاخۆ">پەیمانگەی تەکنیکی زاخۆ</option>
+                            <option value="پەیمانگەی تەکنیکی شێخان">پەیمانگەی تەکنیکی شێخان</option>
+                            <option value="پەیمانگەی تەکنیکی ئامێدی">پەیمانگەی تەکنیکی ئامێدی</option>
+                            <option value="پەیمانگەی تەکنیکی بەردەڕەش">پەیمانگەی تەکنیکی بەردەڕەش</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <!-- درۆپ داونی چوارەم: سەرجەم بەشەکانی پەیمانگاکان (ئارەزوومەندانە) -->
+                <div class="form-group">
+                    <label for="ministry_dept">سەرجەم بەشەکانی پەیمانگاکان:</label>
+                    <select id="ministry_dept" name="ministry_dept">
+                        <option value="" disabled selected>بەشی پەیمانگا هەڵبژێرە (ئارەزوومەندانە)</option>
+                        
+                        <optgroup label="بەشە تەندروستی و پزیشکییەکانی پەیمانگا">
+                            <option value="بەشی پەرستاری">بەشی پەرستاری</option>
+                            <option value="بەشی شیکاری نەخۆشییەکان (میلاق)">بەشی شیکاری نەخۆشییەکان (میلاق)</option>
+                            <option value="بەشی بێهۆشکاری">بەشی بێهۆشکاری</option>
+                            <option value="بەشی دەرمانسازی">بەشی دەرمانسازی</option>
+                            <option value="بەشی تیشک و ڕادیۆلۆجی">بەشی تیشک و ڕادیۆلۆجی</option>
+                            <option value="بەشی تەندروستی کۆمەڵ">بەشی تەندروستی کۆمەڵ</option>
+                            <option value="بەشی چارەسەری سروشتی (علاج طبیعی)">بەشی چارەسەری سروشتی (علاج طبیعی)</option>
+                            <option value="بەشی یاریدەدەری پزیشکی ددان">بەشی یاریدەدەری پزیشکی ددان</option>
+                            <option value="بەشی فریاکەوتن و فریاگوزاری">بەشی فریاکەوتن و فریاگوزاری</option>
+                        </optgroup>
+
+                        <optgroup label="بەشە تەکنەلۆژی و ئەندازیارییەکانی پەیمانگا">
+                            <option value="بەشی تەکنەلۆژیای زانیاری (IT)">بەشی تەکنەلۆژیای زانیاری (IT)</option>
+                            <option value="بەشی سیستەمی کۆمپیوتەر و سۆفتوێر">بەشی سیستەمی کۆمپیوتەر و سۆفتوێر</option>
+                            <option value="بەشی تۆڕەکانی کۆمپیوتەر (Networking)">بەشی تۆڕەکانی کۆمپیوتەر (Networking)</option>
+                            <option value="بەشی تەکنەلۆژیای بیناکاری و شارستانی">بەشی تەکنەلۆژیای بیناکاری و شارستانی</option>
+                            <option value="بەشی تەکنەلۆژیای کارەبا">بەشی تەکنەلۆژیای کارەبا</option>
+                            <option value="بەشی تەکنەلۆژیای میخانیک و ئۆتۆمبێل">بەشی تەکنەلۆژیای میخانیک و ئۆتۆمبێل</option>
+                            <option value="بەشی تەکنەلۆژیای نەوت و پالاوگەکان">بەشی تەکنەلۆژیای نەوت و پالاوگەکان</option>
+                            <option value="بەشی ڕووپێوی (مەساحە)">بەشی ڕووپێوی (مەساحە)</option>
+                        </optgroup>
+
+                        <optgroup label="بەشە کارگێڕی و داراییەکانی پەیمانگا">
+                            <option value="بەشی ژمێریاری">بەشی ژمێریاری</option>
+                            <option value="بەشی کارگێڕی کار">بەشی کارگێڕی کار</option>
+                            <option value="بەشی کارگێڕی بنکەداتە (Data Management)">بەشی کارگێڕی بنکەداتە (Data Management)</option>
+                            <option value="بەشی کارگێڕی نەخۆشخانەکان">بەشی کارگێڕی نەخۆشخانەکان</option>
+                            <option value="بەشی گەشتوگوزار و هوتێلداری">بەشی گەشتوگوزار و هوتێلداری</option>
+                            <option value="بەشی سیستەمی زانیاری کارگێڕی">بەشی سیستەمی زانیاری کارگێڕی</option>
+                            <option value="بەشی تەکنەلۆژیای میدیا و ڕاگەیاندن">بەشی تەکنەلۆژیای میدیا و ڕاگەیاندن</option>
+                            <option value="بەشی تەکنیک و ڕێنمایی یاسایی">بەشی تەکنیک و ڕێنمایی یاسایی</option>
+                        </optgroup>
+
+                        <optgroup label="بەشە کشتوکاڵی و جیاوازەکان">
+                            <option value="بەشی تەکنەلۆژیای کشتوکاڵ و خۆراک">بەشی تەکنەلۆژیای کشتوکاڵ و خۆراک</option>
+                            <option value="بەشی تەکنەلۆژیای سامانی ئاژەڵ">بەشی تەکنەلۆژیای سامانی ئاژەڵ</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <!-- دوگمەی پیشاندانی ئەنجام -->
+                <button type="submit" id="submitBtn" class="btn-submit">پیشاندانی هەڵبژاردنەکان</button>
+            </form>
+
+            <!-- چوارچێوەی پیشاندانی داتاکان (Result Box) -->
+            <div id="resultBox" class="result-box">
+                <h3>ئەنجامی هەڵبژاردنەکانت</h3>
+                <div class="result-item"><strong>زانکۆ:</strong> <span id="resUni">دیاری نەکراوە</span></div>
+                <div class="result-item"><strong>کۆلێج و بەشی زانکۆ:</strong> <span id="resCollege">دیاری نەکراوە</span></div>
+                <div class="result-item"><strong>پەیمانگا:</strong> <span id="resInst">دیاری نەکراوە</span></div>
+                <div class="result-item"><strong>بەشی پەیمانگا:</strong> <span id="resDept">دیاری نەکراوە</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('loginForm');
+        const resultBox = document.getElementById('resultBox');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // ڕێگری لە دووبارە باربوونەوەی لاپەڕەکە دەکات
+
+            // وەرگرتنی بەهای هەڵبژێردراو
+            const uniVal = document.getElementById('university').value;
+            const collegeVal = document.getElementById('college_dept').value;
+            const instVal = document.getElementById('institute').value;
+            const deptVal = document.getElementById('ministry_dept').value;
+
+            // هەڵگرتنی بەهاکان لە خوارەوە
+            document.getElementById('resUni').textContent = uniVal ? uniVal : 'دیاری نەکراوە';
+            document.getElementById('resCollege').textContent = collegeVal ? collegeVal : 'دیاری نەکراوە';
+            document.getElementById('resInst').textContent = instVal ? instVal : 'دیاری نەکراوە';
+            document.getElementById('resDept').textContent = deptVal ? deptVal : 'دیاری نەکراوە';
+
+            // دەركەوتنی چوارچێوەی ئەنجام
+            resultBox.style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>
