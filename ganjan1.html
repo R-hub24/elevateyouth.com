@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ڕێبەری گشتی وەزارەتی خوێندنی باڵا - تەواوی بەشەکان</title>
+    <title>ڕێبەری گشتی وەزارەتی خوێندنی باڵا - زانیاری تەواوی بەشەکان</title>
     <style>
         * {
             box-sizing: border-box;
@@ -157,15 +157,33 @@
         .card ul li {
             color: #cccccc;
             font-size: 13px;
-            padding: 4px 0;
+            padding: 6px 0;
             border-bottom: 1px dashed #2a2a2a;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+        }
+
+        .dept-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .dept-name {
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .dept-desc {
+            font-size: 11px;
+            color: #999999;
         }
 
         .card ul li span.score {
             color: #2ecc71;
             font-weight: bold;
+            white-space: nowrap;
         }
 
         .card-footer {
@@ -234,7 +252,7 @@
     <div class="main-content">
         <div class="page-title">
             <h1>ڕێبەری فەرمی وەزارەتی خوێندنی باڵا (تەواوی کۆلێژ و بەشەکان)</h1>
-            <p>لیستی گشتگیری سەرجەم بەشە زانستی، پزیشکی، هندسی، مرۆیی و هونەرییەکان بە نمرەکانیانەوە</p>
+            <p>لیستی گشتگیری سەرجەم بەشەکان بە زمانی کوردی پاک و زانیاری ورد لەسەر هەر بەشێک</p>
         </div>
 
         <div class="cards-container">
@@ -247,66 +265,144 @@
                     <div class="college-section">
                         <h4>کۆلێجی پزیشکی و تەندروستییەکان</h4>
                         <ul>
-                            <li>پزیشکی گشتی <span class="score">95.2+</span></li>
-                            <li>پزیشکی ددان <span class="score">94.3+</span></li>
-                            <li>دەرمانسازی <span class="score">93.8+</span></li>
-                            <li>پەرستاری <span class="score">85.0+</span></li>
-                            <li>شیکاری نەخۆشییەکان <span class="score">88.5+</span></li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پزیشکی گشتی</span><span class="dept-desc">تایبەت بە چارەسەر و زانستە پزیشکییەکان</span></div>
+                                <span class="score">95.2+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پزیشکی ددان</span><span class="dept-desc">نەخۆشییەکانی دەم و ددان</span></div>
+                                <span class="score">94.3+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">دەرمانسازی</span><span class="dept-desc">لێکۆڵینەوە و دروستکردنی دەرمان</span></div>
+                                <span class="score">93.8+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پەرستاری</span><span class="dept-desc">چاودێری تەندروستی نەخۆش</span></div>
+                                <span class="score">85.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">شیکاری نەخۆشییەکان</span><span class="dept-desc">تاقیگەی پزیشکی و پشکنین</span></div>
+                                <span class="score">88.5+</span>
+                            </li>
                         </ul>
                     </div>
 
                     <div class="college-section">
                         <h4>کۆلێجی ئەندازیاری</h4>
                         <ul>
-                            <li>شارستانی <span class="score">85.0+</span></li>
-                            <li>مەدەنی / بیناسازی <span class="score">84.5+</span></li>
-                            <li>کارەبا و کۆمپیوتەر <span class="score">87.5+</span></li>
-                            <li>میکانیک <span class="score">82.0+</span></li>
-                            <li>مۆبایل و پەیوەندییەکان <span class="score">83.5+</span></li>
-                            <li>شارسازی و معماری <span class="score">86.0+</span></li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">ئەندازیاری شارستانی</span><span class="dept-desc">دیزاین و دروستکردنی ڕێگا و پرد</span></div>
+                                <span class="score">85.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">بیناسازی</span><span class="dept-desc">دیزاینی خانوو و باڵەخانەکان</span></div>
+                                <span class="score">84.5+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">کارەبا و کۆمپیوتەر</span><span class="dept-desc">سیستەمی کارەبایی و هۆشی مصنوعی</span></div>
+                                <span class="score">87.5+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">میکانیک</span><span class="dept-desc">بزوێنەر و ئامێرە پیشەسازییەکان</span></div>
+                                <span class="score">82.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پەیوەندییەکان و مۆبایل</span><span class="dept-desc">تۆڕی پەیوەندی و گەیاندن</span></div>
+                                <span class="score">83.5+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">شارسازی و مەعماری</span><span class="dept-desc">پلانداڕێژی شار و پڕۆژەکان</span></div>
+                                <span class="score">86.0+</span>
+                            </li>
                         </ul>
                     </div>
 
                     <div class="college-section">
-                        <h4>کۆلێجی زانست و IT</h4>
+                        <h4>کۆلێجی زانست و زانیاری تەکنەلۆژیا</h4>
                         <ul>
-                            <li>بەشی کۆمپیوتەر <span class="score">80.5+</span></li>
-                            <li>زانیاری تەکنەلۆژیا (IT) <span class="score">81.0+</span></li>
-                            <li>بایۆلۆجی <span class="score">75.0+</span></li>
-                            <li>کیمیا <span class="score">76.0+</span></li>
-                            <li>فیزیا <span class="score">73.0+</span></li>
-                            <li>ژینگەناسی <span class="score">70.0+</span></li>
-                            <li>ریاضیات (بیرکاری) و آمار <span class="score">72.0+</span></li>
-                            <li>زەویناسی <span class="score">68.0+</span></li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">زانستی کۆمپیوتەر</span><span class="dept-desc">بەرنامەسازی و سیستەمی کۆمپیوتەر</span></div>
+                                <span class="score">80.5+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">زانیاری تەکنەلۆژیا (IT)</span><span class="dept-desc">بەڕێوەبردنی زانیاری و تۆڕەکان</span></div>
+                                <span class="score">81.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">بایۆلۆجی</span><span class="dept-desc">لێکۆڵینەوەی ژین و زیندەوەران</span></div>
+                                <span class="score">75.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">کیمیا</span><span class="dept-desc">پێکهاتە و کارلێکی ماددەکان</span></div>
+                                <span class="score">76.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">فیزیا</span><span class="dept-desc">یاساکانی سروشت و مۆدێلی ماددە</span></div>
+                                <span class="score">73.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">ژینگەناسی</span><span class="dept-desc">پاراستنی پاکی ژینگە و هەوا</span></div>
+                                <span class="score">70.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">بیرکاری و ئامار</span><span class="dept-desc">شیکاری ژمارەیی و داتا</span></div>
+                                <span class="score">72.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">زەویناسی</span><span class="dept-desc">لێکۆڵینەوەی توێژی زەوی و کانزاکان</span></div>
+                                <span class="score">68.0+</span>
+                            </li>
                         </ul>
                     </div>
 
                     <div class="college-section">
                         <h4>کۆلێجە مرۆیی و کارگێڕییەکان</h4>
                         <ul>
-                            <li>ژمێریاری <span class="score">74.0+</span></li>
-                            <li>کارگێڕی کار <span class="score">75.5+</span></li>
-                            <li>ئابووری <span class="score">71.0+</span></li>
-                            <li>دارایی و بانک <span class="score">73.0+</span></li>
-                            <li>کارگێڕی گشتی و ئامار <span class="score">70.0+</span></li>
-                            <li>یاسا <span class="score">82.0+</span></li>
-                            <li>زانستە سیاسییەکان <span class="score">78.0+</span></li>
-                            <li>پەیوەندییە نێودەوڵەتییەکان <span class="score">79.0+</span></li>
-                            <li>زمان و وەرگێڕان (ئینگلیزی) <span class="score">78.0+</span></li>
-                            <li>زمان (کوردی، عەرەبی، فەرەنسی، فارسی) <span class="score">68.0+</span></li>
-                            <li>مێژوو و جوگرافیا <span class="score">65.0+</span></li>
-                            <li>فلسفە و کۆمەڵناسی <span class="score">64.0+</span></li>
-                        </ul>
-                    </div>
-
-                    <div class="college-section">
-                        <h4>کۆلێجە هونەری و پەروەردەییەکان</h4>
-                        <ul>
-                            <li>هونەرە جوانەکان (شێوەکاری، دراما، میوزیک، سینەما) <span class="score">مەرجی توانایی</span></li>
-                            <li>زانستە ئیسلامییەکان (فیقهـ و بنەماکانی) <span class="score">66.0+</span></li>
-                            <li>پەروەردەی بنەڕەت و وەرزش <span class="score">65.0+</span></li>
-                            <li>کشتوکاڵ (باخداری، سامانی ئاژەڵ، ڕوەکپزیشکی) <span class="score">62.0+</span></li>
-                            <li>پزیشکی ڤێتێرنەری <span class="score">78.0+</span></li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">ژمێریاری</span><span class="dept-desc">تۆمارکردن و بەڕێوەبردنی دارایی</span></div>
+                                <span class="score">74.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">کارگێڕی کار</span><span class="dept-desc">بەڕێوەبردنی ڕێکخراو و کۆمپانیاکان</span></div>
+                                <span class="score">75.5+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">ئابووری</span><span class="dept-desc">بازاڕ، دراو و سیاسەتی ئابووری</span></div>
+                                <span class="score">71.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">دارایی و بانک</span><span class="dept-desc">سیستەمی بانکی و وەبەرهێنان</span></div>
+                                <span class="score">73.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">کارگێڕی گشتی و ئامار</span><span class="dept-desc">کاروباری حکومی و داتای فەرمی</span></div>
+                                <span class="score">70.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">یاسا</span><span class="dept-desc">شەریعەت، ماف و دادپەروەری</span></div>
+                                <span class="score">82.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">زانستە سیاسییەکان</span><span class="dept-desc">حوکمڕانی و سیاسەتی نێودەوڵەتی</span></div>
+                                <span class="score">78.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پەیوەندییە نێودەوڵەتییەکان</span><span class="dept-desc">پەیوەندی دیپلۆماسی و سیاسی</span></div>
+                                <span class="score">79.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">زمان و وەرگێڕان (ئینگلیزی)</span><span class="dept-desc">فێربوونی زمان و پیشەی وەرگێڕان</span></div>
+                                <span class="score">78.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">زمانەکان (کوردی، عەرەبی، فەرەنسی)</span><span class="dept-desc">ئەدەبیات و زمانە جیهانییەکان</span></div>
+                                <span class="score">68.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">مێژوو و جوگرافیا</span><span class="dept-desc">ڕووداوە مێژووییەکان و جوگرافیای جیهان</span></div>
+                                <span class="score">65.0+</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -324,37 +420,56 @@
                     <div class="college-section">
                         <h4>کۆلێجە پزیشکی و ئەندازیارییەکان</h4>
                         <ul>
-                            <li>پزیشکی گشتی <span class="score">95.6+</span></li>
-                            <li>پزیشکی ددان <span class="score">94.5+</span></li>
-                            <li>دەرمانسازی <span class="score">94.0+</span></li>
-                            <li>پەرستاری <span class="score">84.0+</span></li>
-                            <li>ئەندازیاری مەعماری <span class="score">89.0+</span></li>
-                            <li>شارستانی و ڕێگاوبان <span class="score">86.0+</span></li>
-                            <li>پڕۆگرامسازی و کۆمپیوتەر <span class="score">88.5+</span></li>
-                            <li>کارەبا و مەکانیک <span class="score">85.0+</span></li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پزیشکی گشتی</span><span class="dept-desc">پزیشکی و چارەسەری نەخۆش</span></div>
+                                <span class="score">95.6+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پزیشکی ددان</span><span class="dept-desc">چاککردنەوەی دەم و ددان</span></div>
+                                <span class="score">94.5+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">دەرمانسازی</span><span class="dept-desc">زانستی دەرمان و نەخۆشی</span></div>
+                                <span class="score">94.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پەرستاری</span><span class="dept-desc">هاوکاری پزیشکی و چاودێری</span></div>
+                                <span class="score">84.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">ئەندازیاری مەعماری</span><span class="dept-desc">دیزاینی بینا و شارسازی</span></div>
+                                <span class="score">89.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">شارستانی و ڕێگاوبان</span><span class="dept-desc">دروستکردنی ژێرخان و پرد</span></div>
+                                <span class="score">86.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پڕۆگرامسازی و کۆمپیوتەر</span><span class="dept-desc">دروستکردنی سیستەم و سافتوەێر</span></div>
+                                <span class="score">88.5+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">کارەبا و مەکانیک</span><span class="dept-desc">سیستەمی کارەبایی و بزوێنەر</span></div>
+                                <span class="score">85.0+</span>
+                            </li>
                         </ul>
                     </div>
 
                     <div class="college-section">
                         <h4>کۆلێجی زانست و کشتوکاڵ</h4>
                         <ul>
-                            <li>بەشی کۆمپیوتەر و IT <span class="score">81.0+</span></li>
-                            <li>بایۆلۆجی، کیمیا، فیزیا <span class="score">76.0+</span></li>
-                            <li>زانستە ئەندازیارییە کشتوکاڵییەکان <span class="score">65.0+</span></li>
-                            <li>دارستان و زانستی ژینگە <span class="score">63.0+</span></li>
-                        </ul>
-                    </div>
-
-                    <div class="college-section">
-                        <h4>کۆلێجە مرۆیی و یاساییەکان</h4>
-                        <ul>
-                            <li>یاسا <span class="score">83.0+</span></li>
-                            <li>زانستە سیاسییەکان <span class="score">79.0+</span></li>
-                            <li>کارگێڕی و ئابووری (ژمێریاری، کارگێڕی کار) <span class="score">75.0+</span></li>
-                            <li>زمان (ئینگلیزی، کوردی، عەرەبی، فارسی، تورکی، فەرەنسی) <span class="score">70.0+</span></li>
-                            <li>ئەدەبیات و زانستە کۆمەڵایەتییەکان <span class="score">66.0+</span></li>
-                            <li>زانستە ئیسلامییەکان <span class="score">67.0+</span></li>
-                            <li>هونەرە جوانەکان و پەروەردەی وەرزشی <span class="score">مەرجی توانایی</span></li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">کۆمپیوتەر و زانیاری تەکنەلۆژیا</span><span class="dept-desc">تۆڕ و زانیاری سەردەم</span></div>
+                                <span class="score">81.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">بایۆلۆجی و کیمیا</span><span class="dept-desc">تاقیگە و زانستی زیندەوەر</span></div>
+                                <span class="score">76.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">زانستە کشتوکاڵییەکان</span><span class="dept-desc">بەروبووم و بەخێوکردن</span></div>
+                                <span class="score">65.0+</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -370,36 +485,32 @@
                     <h3>زانکۆی دهۆک</h3>
                     
                     <div class="college-section">
-                        <h4>کۆلێجە پزیشکی و تەندروستییەکان</h4>
+                        <h4>کۆلێجە پزیشکی و زانستییەکان</h4>
                         <ul>
-                            <li>پزیشکی گشتی <span class="score">95.0+</span></li>
-                            <li>پزیشکی ددان <span class="score">94.1+</span></li>
-                            <li>دەرمانسازی <span class="score">93.5+</span></li>
-                            <li>شیکاری نەخۆشییەکان <span class="score">88.0+</span></li>
-                            <li>پەرستاری <span class="score">83.0+</span></li>
-                            <li>پزیشکی ڤێتێرنەری <span class="score">77.0+</span></li>
-                        </ul>
-                    </div>
-
-                    <div class="college-section">
-                        <h4>ئەندازیاری و زانست</h4>
-                        <ul>
-                            <li>ئەندازیاری شارستانی و مەعماری <span class="score">84.0+</span></li>
-                            <li>ئەندازیاری پلاندانانی شار و ئاو <span class="score">81.0+</span></li>
-                            <li>کۆمپیوتەر و IT <span class="score">80.0+</span></li>
-                            <li>زانست (بایۆلۆجی، کیمیا، فیزیا، ریاضیات) <span class="score">74.0+</span></li>
-                            <li>کشتوکاڵ و دارستان <span class="score">64.0+</span></li>
-                        </ul>
-                    </div>
-
-                    <div class="college-section">
-                        <h4>بەشە یاسایی و مرۆییەکان</h4>
-                        <ul>
-                            <li>یاسا و ڕامیاری <span class="score">80.0+</span></li>
-                            <li>کارگێڕی و ئابووری (بانک، ژمێریاری) <span class="score">72.0+</span></li>
-                            <li>زمان (ئینگلیزی، کوردی، عەرەبی، ئیتالی) <span class="score">72.0+</span></li>
-                            <li>زانستە مرۆییەکان و بنەڕەت <span class="score">66.0+</span></li>
-                            <li>زانستە ئیسلامییەکان <span class="score">65.0+</span></li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پزیشکی گشتی</span><span class="dept-desc">پزیشکی و نەخۆشخانە</span></div>
+                                <span class="score">95.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پزیشکی ددان</span><span class="dept-desc">نەخۆشی دەم و ددان</span></div>
+                                <span class="score">94.1+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">دەرمانسازی</span><span class="dept-desc">کیمیا و دەرمان</span></div>
+                                <span class="score">93.5+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">شیکاری نەخۆشییەکان</span><span class="dept-desc">تاقیگە و پشکنین</span></div>
+                                <span class="score">88.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پزیشکی ڤێتێرنەری</span><span class="dept-desc">پزیشکی ئاژەڵ</span></div>
+                                <span class="score">77.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">ئەندازیاری شارستانی</span><span class="dept-desc">بیناسازی و ژێرخان</span></div>
+                                <span class="score">84.0+</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -415,24 +526,28 @@
                     <h3>زانکۆی پۆلیتەکنیکی سلێمانی</h3>
                     
                     <div class="college-section">
-                        <h4>کۆلێژە تەکنیکییەکان</h4>
+                        <h4>بەشە تەکنیکی و پیشەییەکان</h4>
                         <ul>
-                            <li>تەکنیکی ئەندازیاری شارستانی <span class="score">79.0+</span></li>
-                            <li>تەکنیکی ئەندازیاری کۆمپیوتەر و تۆڕەکان <span class="score">81.0+</span></li>
-                            <li>تەکنیکی مکاتیرۆنیکس و ڕێگاوبان <span class="score">78.0+</span></li>
-                            <li>تەکنیکی تەندروستی (شیکاری، تیشک، هەناوی) <span class="score">89.0+</span></li>
-                            <li>پەرستاری تەکنیکی <span class="score">82.0+</span></li>
-                            <li>تەکنیکی کارگێڕی (حاسیبە، کارگێڕی کار، مارکێتینگ) <span class="score">70.0+</span></li>
-                            <li>ئەندازیاری سەرچاوەکانی ئاو <span class="score">76.0+</span></li>
-                        </ul>
-                    </div>
-
-                    <div class="college-section">
-                        <h4>پەیمانگا تەکنیکییەکان (دوو ساڵی)</h4>
-                        <ul>
-                            <li>پەیمانگای تەکنیکی سلێمانی (گشت بەشەکان) <span class="score">62.0+</span></li>
-                            <li>پەیمانگای تەکنیکی کارگێڕی سلێمانی <span class="score">60.0+</span></li>
-                            <li>پەیمانگای تەکنیکی دوکان، چەمچەماڵ، دەربەندیخان، کەلار <span class="score">58.0+</span></li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">تەکنیکی ئەندازیاری شارستانی</span><span class="dept-desc">ئەندازیاری پیشەیی و پراکتیکی</span></div>
+                                <span class="score">79.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">تەکنیکی کۆمپیوتەر</span><span class="dept-desc">تۆڕ و سیستەمی پراکتیکی</span></div>
+                                <span class="score">81.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">شیکاری تاقیگەی پزیشکی</span><span class="dept-desc">پشکنینی تەندروستی</span></div>
+                                <span class="score">89.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">تەکنیکی کارگێڕی (حاسیبە)</span><span class="dept-desc">ژمێریاری و کارگێڕی پراکتیکی</span></div>
+                                <span class="score">70.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پەیمانگا تەکنیکییەکان</span><span class="dept-desc">خوێندنی دوو ساڵەی پیشەیی</span></div>
+                                <span class="score">60.0+</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -448,15 +563,24 @@
                     <h3>زانکۆی پۆلیتەکنیکی هەولێر</h3>
                     
                     <div class="college-section">
-                        <h4>کۆلێژ و بەشە تەکنیکییەکان</h4>
+                        <h4>بەشە تەکنیکییەکان</h4>
                         <ul>
-                            <li>تەکنیکی ئەندازیاری شارستانی و مەعماری <span class="score">80.0+</span></li>
-                            <li>پرۆگرامسازی و کۆمپیوتەر <span class="score">82.0+</span></li>
-                            <li>شیکاری پزیشکی تەکنیکی <span class="score">89.5+</span></li>
-                            <li>تەکنیکی کارگێڕی و ئابووری <span class="score">68.0+</span></li>
-                            <li>تەکنیکی تەندروستی و خۆراک <span class="score">75.0+</span></li>
-                            <li>کۆلێجی تەکنیکی شەقڵاوە <span class="score">64.0+</span></li>
-                            <li>پەیمانگا پیشەیی و تەکنیکییەکانی هەولێر <span class="score">60.0+</span></li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">تەکنیکی ئەندازیاری</span><span class="dept-desc">دیزاین و پرۆژەی پیشەسازی</span></div>
+                                <span class="score">80.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پڕۆگرامسازی تەکنیکی</span><span class="dept-desc">کۆمپیوتەر و سۆفتوەێر</span></div>
+                                <span class="score">82.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">شیکاری پزیشکی</span><span class="dept-desc">تاقیگەی پزیشکی پیشەیی</span></div>
+                                <span class="score">89.5+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پەیمانگا پیشەییەکان</span><span class="dept-desc">بڕوانامەی دوو ساڵی پیشەیی</span></div>
+                                <span class="score">60.0+</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -472,15 +596,20 @@
                     <h3>زانکۆی سۆران</h3>
                     
                     <div class="college-section">
-                        <h4>بەشە زانستی، ئەندازیاری و مرۆییەکان</h4>
+                        <h4>بەشە زانستی و مرۆییەکان</h4>
                         <ul>
-                            <li>ئەندازیاری نەوت / کۆمپیوتەر <span class="score">82.0+</span></li>
-                            <li>بەشی کۆمپیوتەر (زانست) <span class="score">78.0+</span></li>
-                            <li>بایۆلۆجی، کیمیا، فیزیا <span class="score">73.0+</span></li>
-                            <li>یاسا و پەیوەندییە نێودەوڵەتییەکان <span class="score">80.0+</span></li>
-                            <li>کارگێڕی و ئابووری <span class="score">70.0+</span></li>
-                            <li>زمان (ئینگلیزی، کوردی) <span class="score">75.0+</span></li>
-                            <li>پەروەردە و بنەڕەت <span class="score">65.0+</span></li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">ئەندازیاری نەوت و کۆمپیوتەر</span><span class="dept-desc">پیشەسازی نەوت و تەکنەلۆژیا</span></div>
+                                <span class="score">82.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">یاسا و پەیوەندییەکان</span><span class="dept-desc">ماف و دیپلۆماسی</span></div>
+                                <span class="score">80.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">زمان و وەرگێڕانی ئینگلیزی</span><span class="dept-desc">شارەزایی لە زمان</span></div>
+                                <span class="score">75.0+</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -498,13 +627,18 @@
                     <div class="college-section">
                         <h4>تەواوی بەشەکان</h4>
                         <ul>
-                            <li>ئەندازیاری نەوت، شارستانی، کەمپیوتەر و مەکاری <span class="score">83.0+</span></li>
-                            <li>تەندروستی و پزیشکی <span class="score">86.0+</span></li>
-                            <li>زانست و تەکنەلۆژیا (کۆمپیوتەر، ریاضیات، بایۆلۆجی) <span class="score">74.0+</span></li>
-                            <li>بەشی یاسا <span class="score">79.0+</span></li>
-                            <li>کارگێڕی و ئابووری <span class="score">70.0+</span></li>
-                            <li>پەروەردە و بنەڕەت <span class="score">65.0+</span></li>
-                            <li>زمان (ئینگلیزی و کوردی) <span class="score">72.0+</span></li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">ئەندازیاری نەوت و شارستانی</span><span class="dept-desc">پیشەسازی نەوت و بیناسازی</span></div>
+                                <span class="score">83.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">تەندروستی و پزیشکی</span><span class="dept-desc">زانستە تەندروستییەکان</span></div>
+                                <span class="score">86.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">یاسا</span><span class="dept-desc">دادپەروەری و یاسادانان</span></div>
+                                <span class="score">79.0+</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -522,13 +656,18 @@
                     <div class="college-section">
                         <h4>تەواوی بەشەکان</h4>
                         <ul>
-                            <li>بەشی پەرستاری <span class="score">82.5+</span></li>
-                            <li>کۆلێجی زانست (کۆمپیوتەر، کیمیا، بایۆلۆجی) <span class="score">74.0+</span></li>
-                            <li>زمان و وەرگێڕان (ئینگلیزی) <span class="score">74.0+</span></li>
-                            <li>زمان (کوردی) <span class="score">68.0+</span></li>
-                            <li>مێژوو، جوگرافیا و کۆمەڵناسی <span class="score">64.0+</span></li>
-                            <li>پەروەردەی بنەڕەت و منداڵان <span class="score">63.0+</span></li>
-                            <li>کارگێڕی و ئابووری <span class="score">68.0+</span></li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پەرستاری</span><span class="dept-desc">چاودێری و پزیشکی</span></div>
+                                <span class="score">82.5+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">زانستی کۆمپیوتەر</span><span class="dept-desc">بەرنامەسازی</span></div>
+                                <span class="score">74.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">وەرگێڕانی ئینگلیزی</span><span class="dept-desc">زمان و پەیوەندی</span></div>
+                                <span class="score">74.0+</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -546,12 +685,14 @@
                     <div class="college-section">
                         <h4>تەواوی بەشەکان</h4>
                         <ul>
-                            <li>کۆلێجی زانست (کۆمپیوتەر، بایۆلۆجی، کیمیا) <span class="score">73.0+</span></li>
-                            <li>زمان و ئەدەبیات (ئینگلیزی) <span class="score">75.0+</span></li>
-                            <li>زمان (کوردی و عەرەبی) <span class="score">67.0+</span></li>
-                            <li>پەروەردە و زانستە مرۆییەکان <span class="score">63.0+</span></li>
-                            <li>کارگێڕی و ئابووری <span class="score">68.0+</span></li>
-                            <li>بەشی وەرزش و هونەر <span class="score">مەرجی توانایی</span></li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">کۆلێجی زانست</span><span class="dept-desc">کۆمپیوتەر، بایۆلۆجی، کیمیا</span></div>
+                                <span class="score">73.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">ئەدەبیاتی ئینگلیزی</span><span class="dept-desc">زمان و ئەدەب</span></div>
+                                <span class="score">75.0+</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -569,13 +710,14 @@
                     <div class="college-section">
                         <h4>تەواوی بەشەکان</h4>
                         <ul>
-                            <li>کۆلێجی زانست (کۆمپیوتەر و ریاضیات، بایۆلۆجی) <span class="score">74.0+</span></li>
-                            <li>زمان و وەرگێڕان (ئینگلیزی) <span class="score">76.0+</span></li>
-                            <li>زمان (کوردی) <span class="score">67.0+</span></li>
-                            <li>کۆلێجی پەروەردە و بنەڕەت <span class="score">65.0+</span></li>
-                            <li>زانستە مرۆییەکان (مێژوو، جوگرافیا) <span class="score">64.0+</span></li>
-                            <li>کارگێڕی و ئابووری <span class="score">68.0+</span></li>
-                            <li>پەروەردەی وەرزشی <span class="score">مەرجی توانایی</span></li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">کۆمپیوتەر و زانست</span><span class="dept-desc">بەرنامەسازی و ریاضیات</span></div>
+                                <span class="score">74.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">وەرگێڕانی ئینگلیزی</span><span class="dept-desc">زمانەکان</span></div>
+                                <span class="score">76.0+</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -593,12 +735,18 @@
                     <div class="college-section">
                         <h4>تەواوی بەشەکان</h4>
                         <ul>
-                            <li>پزیشکی گشتی <span class="score">94.8+</span></li>
-                            <li>کۆلێجی زانست (کۆمپیوتەر، بایۆلۆجی، کیمیا، فیزیا) <span class="score">76.0+</span></li>
-                            <li>ئەندازیاری (شارستانی، نەوت، کۆمپیوتەر) <span class="score">82.0+</span></li>
-                            <li>تجارت و زانستە ئابوورییەکان <span class="score">72.0+</span></li>
-                            <li>پەروەردە و زمان (ئینگلیزی، کوردی) <span class="score">68.0+</span></li>
-                            <li>زانستە مرۆییەکان و بنەڕەت <span class="score">65.0+</span></li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">پزیشکی گشتی</span><span class="dept-desc">پزیشکی و تەندروستی</span></div>
+                                <span class="score">94.8+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">ئەندازیاری</span><span class="dept-desc">نەوت و شارستانی</span></div>
+                                <span class="score">82.0+</span>
+                            </li>
+                            <li>
+                                <div class="dept-info"><span class="dept-name">زانستە ئابوورییەکان</span><span class="dept-desc">تجارت و کارگێڕی</span></div>
+                                <span class="score">72.0+</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
