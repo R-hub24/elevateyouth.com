@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ئیلیڤەتی گەنجان - Elevate Youth</title>
-    <!-- هێنانی فۆنتی Noto Kufi Arabic -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <title>ڕێبەری گشتی وەزارەتی خوێندنی باڵا - تەواوی بەشەکان</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Noto Kufi Arabic', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
@@ -25,7 +20,7 @@
             margin: 0;
         }
 
-        /* بانەری سەوز لە لای چەپ به z-index بەرزتر */
+        /* بانەری سەوز لە لای چەپ */
         .sidebar {
             width: 280px;
             background-color: #2ecc71;
@@ -39,7 +34,6 @@
             height: 100vh;
             left: 0;
             top: 0;
-            z-index: 1000; /* ئەمە کێشەی کلیک نەبوونی چارەسەر کرد */
         }
 
         .sidebar h2 {
@@ -47,7 +41,6 @@
             font-size: 20px;
             margin-bottom: 30px;
             text-align: center;
-            font-weight: 700;
         }
 
         .sidebar-links {
@@ -57,161 +50,143 @@
             width: 100%;
         }
 
-        .sidebar-links button {
+        .sidebar-links a {
             background-color: #1e1e1e;
             color: #ffffff;
             padding: 14px;
             text-align: center;
-            border: none;
+            text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            font-size: 14px;
-            font-family: 'Noto Kufi Arabic', sans-serif;
         }
 
-        .sidebar-links button:hover, .sidebar-links button.active {
-            background-color: #ffffff;
+        .sidebar-links a:hover {
+            background-color: #27ae60;
             color: #121212;
             transform: translateY(-2px);
         }
 
-        /* بەشی ناوەڕاست بۆ فۆرم و چوارچێوەکە */
+        /* بەشی ناوەندی بۆ پیشاندانی کارتەکان */
         .main-content {
             flex: 1;
             margin-left: 280px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            min-height: 100vh;
-            position: relative;
-            z-index: 1;
-        }
-
-        .container {
-            background-color: #1e1e1e;
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-            width: 100%;
-            max-width: 600px;
-            border: 1px solid #2e2e2e;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .page-section {
-            display: none;
-        }
-
-        .page-section.active {
-            display: block;
-        }
-
-        .header {
+        .page-title {
             text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .header h1 {
-            color: #2ecc71;
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            text-align: right;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #ffffff;
-            font-size: 14px;
-        }
-
-        .form-group select, .form-group input {
+            margin-bottom: 35px;
+            border-bottom: 2px solid #2ecc71;
+            padding-bottom: 15px;
             width: 100%;
-            padding: 12px;
-            border: 1px solid #333333;
-            border-radius: 6px;
-            background-color: #2a2a2a;
-            color: #ffffff;
-            font-size: 14px;
-            outline: none;
-            transition: border-color 0.3s ease;
-            font-family: 'Noto Kufi Arabic', sans-serif;
+            max-width: 1200px;
         }
 
-        .form-group select:focus, .form-group input:focus {
+        .page-title h1 {
+            color: #2ecc71;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .page-title p {
+            color: #b0b0b0;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* ڕیزبەندی کارتەکان (Grid) */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* دیزاینی هر کارتێک */
+        .card {
+            background-color: #1e1e1e;
+            border: 1px solid #2e2e2e;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
             border-color: #2ecc71;
         }
 
-        optgroup {
-            background-color: #1e1e1e;
+        .card h3 {
             color: #2ecc71;
-            font-weight: bold;
-        }
-
-        option {
-            background-color: #2a2a2a;
-            color: #ffffff;
-        }
-
-        .btn-submit {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background-color: #2ecc71;
-            color: #ffffff;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 15px;
-            font-family: 'Noto Kufi Arabic', sans-serif;
-        }
-
-        .btn-submit:hover {
-            background-color: #27ae60;
-        }
-
-        /* چوارچێوەی نمایشکردنی ئەنجام (Result Container) */
-        .result-box {
-            margin-top: 25px;
-            padding: 20px;
-            background-color: #2a2a2a;
-            border: 1px solid #2ecc71;
-            border-radius: 8px;
-            display: none;
-        }
-
-        .result-box h3 {
-            color: #2ecc71;
-            font-size: 16px;
-            margin-bottom: 15px;
-            text-align: center;
-            border-bottom: 1px solid #333;
+            font-size: 19px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #333333;
             padding-bottom: 8px;
         }
 
-        .result-item {
-            font-size: 14px;
-            margin-bottom: 10px;
-            line-height: 1.6;
+        .college-section {
+            margin-bottom: 14px;
         }
 
-        .result-item span {
+        .college-section h4 {
+            color: #ffffff;
+            font-size: 13px;
+            margin-bottom: 6px;
+            background-color: #252525;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border-right: 3px solid #2ecc71;
+        }
+
+        .card ul {
+            list-style-type: none;
+            padding: 0 10px;
+            margin-bottom: 10px;
+        }
+
+        .card ul li {
+            color: #cccccc;
+            font-size: 13px;
+            padding: 4px 0;
+            border-bottom: 1px dashed #2a2a2a;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card ul li span.score {
             color: #2ecc71;
             font-weight: bold;
         }
 
-        /* ڕێکخستنی شاشە بچووکەکان (مۆبایل) */
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #888888;
+            border-top: 1px solid #2a2a2a;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        .badge {
+            background-color: rgba(46, 204, 113, 0.15);
+            color: #2ecc71;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
@@ -233,276 +208,408 @@
                 width: auto;
                 gap: 10px;
             }
-            .sidebar-links button {
+            .sidebar-links a {
                 padding: 8px 12px;
                 font-size: 13px;
             }
             .main-content {
                 margin-left: 0;
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- بانەری سەوزی درێژ لە لای چەپ -->
+    <!-- بانەری سەوز لە لای چەپ -->
     <div class="sidebar">
-        <h2>ئیلیڤەتی گەنجان</h2>
-       <a href="infrmation.html">
-    <button type="button">زانیاری نمرە و بەشەکان</button>
-</a>
-        <a href="zankoins.html>
-             <button type="button">زانیاری نمرە و بەشەکان</button>
-        </a>
+        <h2>ئیلیڤلەتی گەنجان</h2>
+        <div class="sidebar-links">
+            <a href="index.html">تۆمارکردنی زانیاری</a>
+            <a href="guide.html">زانکۆ و پەیمانگاکان</a>
+        </div>
     </div>
 
-    <!-- بەشی ناوەندی و چوارچێوەی فۆرمەکە -->
+    <!-- بەشی ناوەندی -->
     <div class="main-content">
-        <div class="container">
+        <div class="page-title">
+            <h1>ڕێبەری فەرمی وەزارەتی خوێندنی باڵا (تەواوی کۆلێژ و بەشەکان)</h1>
+            <p>لیستی گشتگیری سەرجەم بەشە زانستی، پزیشکی، هندسی، مرۆیی و هونەرییەکان بە نمرەکانیانەوە</p>
+        </div>
+
+        <div class="cards-container">
             
-            <!-- بەشی یەکەم: زانکۆ و پەیمانگاکان -->
-            <div id="section1" class="page-section active">
-                <div class="header">
-                    <h1>تۆمارکردنی زانیاری خوێندکاران</h1>
+            <!-- 1. زانکۆی سلێمانی -->
+            <div class="card">
+                <div>
+                    <h3>زانکۆی سلێمانی</h3>
+                    
+                    <div class="college-section">
+                        <h4>کۆلێجی پزیشکی و تەندروستییەکان</h4>
+                        <ul>
+                            <li>پزیشکی گشتی <span class="score">95.2+</span></li>
+                            <li>پزیشکی ددان <span class="score">94.3+</span></li>
+                            <li>دەرمانسازی <span class="score">93.8+</span></li>
+                            <li>پەرستاری <span class="score">85.0+</span></li>
+                            <li>شیکاری نەخۆشییەکان <span class="score">88.5+</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="college-section">
+                        <h4>کۆلێجی ئەندازیاری</h4>
+                        <ul>
+                            <li>شارستانی <span class="score">85.0+</span></li>
+                            <li>مەدەنی / بیناسازی <span class="score">84.5+</span></li>
+                            <li>کارەبا و کۆمپیوتەر <span class="score">87.5+</span></li>
+                            <li>میکانیک <span class="score">82.0+</span></li>
+                            <li>مۆبایل و پەیوەندییەکان <span class="score">83.5+</span></li>
+                            <li>شارسازی و معماری <span class="score">86.0+</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="college-section">
+                        <h4>کۆلێجی زانست و IT</h4>
+                        <ul>
+                            <li>بەشی کۆمپیوتەر <span class="score">80.5+</span></li>
+                            <li>زانیاری تەکنەلۆژیا (IT) <span class="score">81.0+</span></li>
+                            <li>بایۆلۆجی <span class="score">75.0+</span></li>
+                            <li>کیمیا <span class="score">76.0+</span></li>
+                            <li>فیزیا <span class="score">73.0+</span></li>
+                            <li>ژینگەناسی <span class="score">70.0+</span></li>
+                            <li>ریاضیات (بیرکاری) و آمار <span class="score">72.0+</span></li>
+                            <li>زەویناسی <span class="score">68.0+</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="college-section">
+                        <h4>کۆلێجە مرۆیی و کارگێڕییەکان</h4>
+                        <ul>
+                            <li>ژمێریاری <span class="score">74.0+</span></li>
+                            <li>کارگێڕی کار <span class="score">75.5+</span></li>
+                            <li>ئابووری <span class="score">71.0+</span></li>
+                            <li>دارایی و بانک <span class="score">73.0+</span></li>
+                            <li>کارگێڕی گشتی و ئامار <span class="score">70.0+</span></li>
+                            <li>یاسا <span class="score">82.0+</span></li>
+                            <li>زانستە سیاسییەکان <span class="score">78.0+</span></li>
+                            <li>پەیوەندییە نێودەوڵەتییەکان <span class="score">79.0+</span></li>
+                            <li>زمان و وەرگێڕان (ئینگلیزی) <span class="score">78.0+</span></li>
+                            <li>زمان (کوردی، عەرەبی، فەرەنسی، فارسی) <span class="score">68.0+</span></li>
+                            <li>مێژوو و جوگرافیا <span class="score">65.0+</span></li>
+                            <li>فلسفە و کۆمەڵناسی <span class="score">64.0+</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="college-section">
+                        <h4>کۆلێجە هونەری و پەروەردەییەکان</h4>
+                        <ul>
+                            <li>هونەرە جوانەکان (شێوەکاری، دراما، میوزیک، سینەما) <span class="score">مەرجی توانایی</span></li>
+                            <li>زانستە ئیسلامییەکان (فیقهـ و بنەماکانی) <span class="score">66.0+</span></li>
+                            <li>پەروەردەی بنەڕەت و وەرزش <span class="score">65.0+</span></li>
+                            <li>کشتوکاڵ (باخداری، سامانی ئاژەڵ، ڕوەکپزیشکی) <span class="score">62.0+</span></li>
+                            <li>پزیشکی ڤێتێرنەری <span class="score">78.0+</span></li>
+                        </ul>
+                    </div>
                 </div>
-
-                <form id="loginForm">
-                    <!-- درۆپ داونی یەکەم: ناوی زانکۆکان -->
-                    <div class="form-group">
-                        <label for="university">ناوی زانکۆکانی هەرێمی کوردستان:</label>
-                        <select id="university" name="university">
-                            <option value="" disabled selected>زانکۆی خۆت هەڵبژێرە (ئارەزوومەندانە)</option>
-                            <option value="زانکۆی سەلاحەدین - هەولێر">زانکۆی سەلاحەدین - هەولێر</option>
-                            <option value="زانکۆی تەکنیکی هەولێر">زانکۆی تەکنیکی هەولێر</option>
-                            <option value="زانکۆی پزیشکی هەولێر">زانکۆی پزیشکی هەولێر</option>
-                            <option value="زانکۆی سلێمانی">زانکۆی سلێمانی</option>
-                            <option value="زانکۆی تەکنیکی سلێمانی">زانکۆی تەکنیکی سلێمانی</option>
-                            <option value="زانکۆی هەڵەبجە">زانکۆی هەڵەبجە</option>
-                            <option value="زانکۆی گەرمیان (کەلار/خانەقین)">زانکۆی گەرمیان (کەلار/خانەقین)</option>
-                            <option value="زانکۆی ڕاپەڕین (ڕانیە/قەڵادزێ)">زانکۆی ڕاپەڕین (ڕانیە/قەڵادزێ)</option>
-                            <option value="زانکۆی چەرموو (چەمچەماڵ)">زانکۆی چەرموو (چەمچەماڵ)</option>
-                            <option value="زانکۆی دهۆک">زانکۆی دهۆک</option>
-                            <option value="زانکۆی تەکنیکی دهۆک">زانکۆی تەکنیکی دهۆک</option>
-                            <option value="زانکۆی زاخۆ">زانکۆی زاخۆ</option>
-                            <option value="زانکۆی ئاکرێ بۆ زانستە تەواوکارییەکان">زانکۆی ئاکرێ بۆ زانستە تەواوکارییەکان</option>
-                            <option value="زانکۆی کۆیە">زانکۆی کۆیە</option>
-                            <option value="زانکۆی سۆران">زانکۆی سۆران</option>
-                            <option value="زانکۆی کوردستان - هەولێر">زانکۆی کوردستان - هەولێر</option>
-                        </select>
-                    </div>
-
-                    <!-- درۆپ داونی دووەم: سەرجەم کۆلێج و بەشەکان -->
-                    <div class="form-group">
-                        <label for="college_dept">سەرجەم کۆلێج و بەشەکانی زانکۆکان:</label>
-                        <select id="college_dept" name="college_dept">
-                            <option value="" disabled selected>کۆلێج و بەش هەڵبژێرە (ئارەزوومەندانە)</option>
-                            <optgroup label="کۆلێجە پزیشکییەکان">
-                                <option value="کۆلێجی پزیشکی - بەشی پزیشکی گشتی">کۆلێجی پزیشکی - بەشی پزیشکی گشتی</option>
-                                <option value="کۆلێجی پزیشکی ددان - بەشی پزیشکی ددان">کۆلێجی پزیشکی ددان - بەشی پزیشکی ددان</option>
-                                <option value="کۆلێجی دەرمانسازی - بەشی دەرمانسازی">کۆلێجی دەرمانسازی - بەشی دەرمانسازی</option>
-                                <option value="کۆلێجی پەرستاری - بەشی پەرستاری">کۆلێجی پەرستاری - بەشی پەرستاری</option>
-                                <option value="کۆلێجی زانستە تەندروستییەکان - بەشی شیکاری بالۆجی">کۆلێجی زانستە تەندروستییەکان - بەشی شیکاری بالۆجی</option>
-                                <option value="کۆلێجی زانستە تەندروستییەکان - بەشی بێهۆشکاری">کۆلێجی زانستە تەندروستییەکان - بەشی بێهۆشکاری</option>
-                                <option value="کۆلێجی زانستە تەندروستییەکان - بەشی تیشک و ڕادیۆلۆجی">کۆلێجی زانستە تەندروستییەکان - بەشی تیشک و ڕادیۆلۆجی</option>
-                            </optgroup>
-
-                            <optgroup label="کۆلێجە ئەندازیاری و تەکنەلۆژییەکان">
-                                <option value="کۆلێجی ئەندازیاری - بەشی کۆمپیوتەر">کۆلێجی ئەندازیاری - بەشی کۆمپیوتەر</option>
-                                <option value="کۆلێجی ئەندازیاری - بەشی شارستانی">کۆلێجی ئەندازیاری - بەشی شارستانی</option>
-                                <option value="کۆلێجی ئەندازیاری - بەشی تەلارسازی">کۆلێجی ئەندازیاری - بەشی تەلارسازی</option>
-                                <option value="کۆلێجی ئەندازیاری - بەشی کارەبا">کۆلێجی ئەندازیاری - بەشی کارەبا</option>
-                                <option value="کۆلێجی ئەندازیاری - بەشی میخانیک">کۆلێجی ئەندازیاری - بەشی میخانیک</option>
-                                <option value="کۆلێجی ئەندازیاری - بەشی نەوت">کۆلێجی ئەندازیاری - بەشی نەوت</option>
-                                <option value="کۆلێجی ئەندازیاری - بەشی سۆفتوێر">کۆلێجی ئەندازیاری - بەشی سۆفتوێر</option>
-                                <option value="کۆلێجی زانیاری تەکنەلۆژیا - بەشی IT">کۆلێجی زانیاری تەکنەلۆژیا - بەشی IT</option>
-                            </optgroup>
-
-                            <optgroup label="کۆلێجەکانی زانست">
-                                <option value="کۆلێجی زانست - بەشی بایۆلۆجی (زیاندەوەر زانی)">کۆلێجی زانست - بەشی بایۆلۆجی (زیاندەوەر زانی)</option>
-                                <option value="کۆلێجی زانست - بەشی کیمیا">کۆلێجی زانست - بەشی کیمیا</option>
-                                <option value="کۆلێجی زانست - بەشی فیزیا">کۆلێجی زانست - بەشی فیزیا</option>
-                                <option value="کۆلێجی زانست - بەشی بیرکاری">کۆلێجی زانست - بەشی بیرکاری</option>
-                                <option value="کۆلێجی زانست - بەشی زەویناسی (جیۆلۆجی)">کۆلێجی زانست - بەشی زەویناسی (جیۆلۆجی)</option>
-                                <option value="کۆلێجی زانست - بەشی زانستی کۆمپیوتەر">کۆلێجی زانست - بەشی زانستی کۆمپیوتەر</option>
-                            </optgroup>
-
-                            <optgroup label="کۆلێجە مرۆڤایەتی و کارگێڕییەکان">
-                                <option value="کۆلێجی یاسا - بەشی یاسا">کۆلێجی یاسا - بەشی یاسا</option>
-                                <option value="کۆلێجی زانستە ڕامیارییەکان - بەشی زانستە ڕامیارییەکان">کۆلێجی زانستە ڕامیارییەکان - بەشی زانستە ڕامیارییەکان</option>
-                                <option value="کۆلێجی کارگێڕی و ئابووری - بەشی کارگێڕی کار">کۆلێجی کارگێڕی و ئابووری - بەشی کارگێڕی کار</option>
-                                <option value="کۆلێجی کارگێڕی و ئابووری - بەشی ژمێریاری">کۆلێجی کارگێڕی و ئابووری - بەشی ژمێریاری</option>
-                                <option value="کۆلێجی کارگێڕی و ئابووری - بەشی ئابووری">کۆلێجی کارگێڕی و ئابووری - بەشی ئابووری</option>
-                                <option value="کۆلێجی کارگێڕی و ئابووری - بەشی ئامار">کۆلێجی کارگێڕی و ئابووری - بەشی ئامار</option>
-                                <option value="کۆلێجی زمان - بەشی زمانی ئینگلیزی">کۆلێجی زمان - بەشی زمانی ئینگلیزی</option>
-                                <option value="کۆلێجی زمان - بەشی زمانی کوردی">کۆلێجی زمان - بەشی زمانی کوردی</option>
-                                <option value="کۆلێجی زمان - بەشی زمانی عەرەبی">کۆلێجی زمان - بەشی زمانی عەرەبی</option>
-                                <option value="کۆلێجی زمان - بەشە زمانە جیهانییەکان">کۆلێجی زمان - بەشە زمانە جیهانییەکان</option>
-                                <option value="کۆلێجی پەروەردە - بەشی مێژوو">کۆلێجی پەروەردە - بەشی مێژوو</option>
-                                <option value="کۆلێجی پەروەردە - بەشی جوگرافیا">کۆلێجی پەروەردە - بەشی جوگرافیا</option>
-                                <option value="کۆلێجی پەروەردە - بەشی دەروونناسی">کۆلێجی پەروەردە - بەشی دەروونناسی</option>
-                                <option value="کۆلێجی زانستە ئیسلامییەکان - بەشی خوێندنی ئیسلامی">کۆلێجی زانستە ئیسلامییەکان - بەشی خوێندنی ئیسلامی</option>
-                                <option value="کۆلێجی زانستە کشتوکاڵییەکان - بەشە کشتوکاڵییەکان">کۆلێجی زانستە کشتوکاڵییەکان - بەشە کشتوکاڵییەکان</option>
-                                <option value="کۆلێجی پەروەردەی وەرزش - بەشی پەروەردەی وەرزش">کۆلێجی پەروەردەی وەرزش - بەشی پەروەردەی وەرزش</option>
-                                <option value="کۆلێجی هونەرە جوانەکان - بەشەکانی شێوەکاری و شانۆ و موزیک">کۆلێجی هونەرە جوانەکان - بەشەکانی شێوەکاری و شانۆ و موزیک</option>
-                            </optgroup>
-                        </select>
-                    </div>
-
-                    <!-- درۆپ داونی سێهەم: پەیمانگاکان -->
-                    <div class="form-group">
-                        <label for="institute">پەیمانگاکانی سنوری وەزارەتی خوێندنی باڵا:</label>
-                        <select id="institute" name="institute">
-                            <option value="" disabled selected>پەیمانگا هەڵبژێرە (ئارەزوومەندانە)</option>
-                            <optgroup label="پەیمانگە تەکنیکییەکانی پارێزگای هەولێر">
-                                <option value="پەیمانگەی تەکنیکی هەولێر">پەیمانگەی تەکنیکی هەولێر</option>
-                                <option value="پەیمانگەی تەکنیکی کۆیە">پەیمانگەی تەکنیکی کۆیە</option>
-                                <option value="پەیمانگەی تەکنیکی خەبات">پەیمانگەی تەکنیکی خەبات</option>
-                                <option value="پەیمانگەی تەکنیکی سۆران">پەیمانگەی تەکنیکی سۆران</option>
-                                <option value="پەیمانگەی تەکنیکی مێرگەسۆر">پەیمانگەی تەکنیکی مێرگەسۆر</option>
-                                <option value="پەیمانگەی تەکنیکی شقڵاوە">پەیمانگەی تەکنیکی شقڵاوە</option>
-                            </optgroup>
-                            <optgroup label="پەیمانگە تەکنیکییەکانی پارێزگای سلێمانی">
-                                <option value="پەیمانگەی تەکنیکی سلێمانی">پەیمانگەی تەکنیکی سلێمانی</option>
-                                <option value="پەیمانگەی تەکنیکی کارگێڕی سلێمانی">پەیمانگەی تەکنیکی کارگێڕی سلێمانی</option>
-                                <option value="پەیمانگەی تەکنیکی چەمچەماڵ">پەیمانگەی تەکنیکی چەمچەماڵ</option>
-                                <option value="پەیمانگەی تەکنیکی کەلار">پەیمانگەی تەکنیکی کەلار</option>
-                                <option value="پەیمانگەی تەکنیکی کەرکووک (کفری)">پەیمانگەی تەکنیکی کەرکووک (کفری)</option>
-                                <option value="پەیمانگەی تەکنیکی هەڵەبجە">پەیمانگەی تەکنیکی هەڵەبجە</option>
-                                <option value="پەیمانگەی تەکنیکی دووکان">پەیمانگەی تەکنیکی دووکان</option>
-                                <option value="پەیمانگەی تەکنیکی دەربەندیخان">پەیمانگەی تەکنیکی دەربەندیخان</option>
-                                <option value="پەیمانگەی تەکنیکی بەختیاری">پەیمانگەی تەکنیکی بەختیاری</option>
-                            </optgroup>
-                            <optgroup label="پەیمانگە تەکنیکییەکانی پارێزگای دهۆک">
-                                <option value="پەیمانگەی تەکنیکی دهۆک">پەیمانگەی تەکنیکی دهۆک</option>
-                                <option value="پەیمانگەی تەکنیکی کارگێڕی دهۆک">پەیمانگەی تەکنیکی کارگێڕی دهۆک</option>
-                                <option value="پەیمانگەی تەکنیکی ئاکرێ">پەیمانگەی تەکنیکی ئاکرێ</option>
-                                <option value="پەیمانگەی تەکنیکی زاخۆ">پەیمانگەی تەکنیکی زاخۆ</option>
-                                <option value="پەیمانگەی تەکنیکی شێخان">پەیمانگەی تەکنیکی شێخان</option>
-                                <option value="پەیمانگەی تەکنیکی ئامێدی">پەیمانگەی تەکنیکی ئامێدی</option>
-                                <option value="پەیمانگەی تەکنیکی بەردەڕەش">پەیمانگەی تەکنیکی بەردەڕەش</option>
-                            </optgroup>
-                        </select>
-                    </div>
-
-                    <!-- درۆپ داونی چوارەم: سەرجەم بەشەکانی پەیمانگاکان -->
-                    <div class="form-group">
-                        <label for="ministry_dept">سەرجەم بەشەکانی پەیمانگاکان:</label>
-                        <select id="ministry_dept" name="ministry_dept">
-                            <option value="" disabled selected>بەشی پەیمانگا هەڵبژێرە (ئارەزوومەندانە)</option>
-                            <optgroup label="بەشە تەندروستی و پزیشکییەکانی پەیمانگا">
-                                <option value="بەشی پەرستاری">بەشی پەرستاری</option>
-                                <option value="بەشی شیکاری نەخۆشییەکان (میلاق)">بەشی شیکاری نەخۆشییەکان (میلاق)</option>
-                                <option value="بەشی بێهۆشکاری">بەشی بێهۆشکاری</option>
-                                <option value="بەشی دەرمانسازی">بەشی دەرمانسازی</option>
-                                <option value="بەشی تیشک و ڕادیۆلۆجی">بەشی تیشک و ڕادیۆلۆجی</option>
-                                <option value="بەشی تەندروستی کۆمەڵ">بەشی تەندروستی کۆمەڵ</option>
-                                <option value="بەشی چارەسەری سروشتی (علاج طبیعی)">بەشی چارەسەری سروشتی (علاج طبیعی)</option>
-                                <option value="بەشی یاریدەدەری پزیشکی ددان">بەشی یاریدەدەری پزیشکی ددان</option>
-                                <option value="بەشی فریاکەوتن و فریاگوزاری">بەشی فریاکەوتن و فریاگوزاری</option>
-                            </optgroup>
-                            <optgroup label="بەشە تەکنەلۆژی و ئەندازیارییەکانی پەیمانگا">
-                                <option value="بەشی تەکنەلۆژیای زانیاری (IT)">بەشی تەکنەلۆژیای زانیاری (IT)</option>
-                                <option value="بەشی سیستەمی کۆمپیوتەر و سۆفتوێر">بەشی سیستەمی کۆمپیوتەر و سۆفتوێر</option>
-                                <option value="بەشی تۆڕەکانی کۆمپیوتەر (Networking)">بەشی تۆڕەکانی کۆمپیوتەر (Networking)</option>
-                                <option value="بەشی تەکنەلۆژیای بیناکاری و شارستانی">بەشی تەکنەلۆژیای بیناکاری و شارستانی</option>
-                                <option value="بەشی تەکنەلۆژیای کارەبا">بەشی تەکنەلۆژیای کارەبا</option>
-                                <option value="بەشی تەکنەلۆژیای میخانیک و ئۆتۆمبێل">بەشی تەکنەلۆژیای میخانیک و ئۆتۆمبێل</option>
-                                <option value="بەشی تەکنەلۆژیای نەوت و پالاوگەکان">بەشی تەکنەلۆژیای نەوت و پالاوگەکان</option>
-                                <option value="بەشی ڕووپێوی (مەساحە)">بەشی ڕووپێوی (مەساحە)</option>
-                            </optgroup>
-                            <optgroup label="بەشە کارگێڕی و داراییەکانی پەیمانگا">
-                                <option value="بەشی ژمێریاری">بەشی ژمێریاری</option>
-                                <option value="بەشی کارگێڕی کار">بەشی کارگێڕی کار</option>
-                                <option value="بەشی کارگێڕی بنکەداتە (Data Management)">بەشی کارگێڕی بنکەداتە (Data Management)</option>
-                                <option value="بەشی کارگێڕی نەخۆشخانەکان">بەشی کارگێڕی نەخۆشخانەکان</option>
-                                <option value="بەشی گەشتوگوزار و هوتێلداری">بەشی گەشتوگوزار و هوتێلداری</option>
-                                <option value="بەشی سیستەمی زانیاری کارگێڕی">بەشی سیستەمی زانیاری کارگێڕی</option>
-                                <option value="بەشی تەکنەلۆژیای میدیا و ڕاگەیاندن">بەشی تەکنەلۆژیای میدیا و ڕاگەیاندن</option>
-                                <option value="بەشی تەکنیک و ڕێنمایی یاسایی">بەشی تەکنیک و ڕێنمایی یاسایی</option>
-                            </optgroup>
-                            <optgroup label="بەشە کشتوکاڵی و جیاوازەکان">
-                                <option value="بەشی تەکنەلۆژیای کشتوکاڵ و خۆراک">بەشی تەکنەلۆژیای کشتوکاڵ و خۆراک</option>
-                                <option value="بەشی تەکنەلۆژیای سامانی ئاژەڵ">بەشی تەکنەلۆژیای سامانی ئاژەڵ</option>
-                            </optgroup>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn-submit">پیشاندانی هەڵبژاردنەکان</button>
-                </form>
-
-                <div id="resultBox" class="result-box">
-                    <h3>ئەنجامی هەڵبژاردنەکانت</h3>
-                    <div class="result-item"><strong>زانکۆ:</strong> <span id="resUni">دیاری نەکراوە</span></div>
-                    <div class="result-item"><strong>کۆلێج و بەشی زانکۆ:</strong> <span id="resCollege">دیاری نەکراوە</span></div>
-                    <div class="result-item"><strong>پەیمانگا:</strong> <span id="resInst">دیاری نەکراوە</span></div>
-                    <div class="result-item"><strong>بەشی پەیمانگا:</strong> <span id="resDept">دیاری نەکراوە</span></div>
+                <div class="card-footer">
+                    <span>سلێمانی</span>
+                    <span class="badge">حکومی</span>
                 </div>
             </div>
 
-            <!-- بەشی دووەم: زانیاری دەربارەی نمرە -->
-            <div id="section2" class="page-section">
-                <div class="header">
-                    <h1>زانیاری دەربارەی نمرەی وەرگیران</h1>
-                </div>
-                <form id="gradeForm">
-                    <div class="form-group">
-                        <label for="studentGrade">نمرەکەت بنووسە:</label>
-                        <input type="number" id="studentGrade" placeholder="نموونە: 85" min="50" max="100">
+            <!-- 2. زانکۆی سەلاحەدین -->
+            <div class="card">
+                <div>
+                    <h3>زانکۆی سەلاحەدین - هەولێر</h3>
+                    
+                    <div class="college-section">
+                        <h4>کۆلێجە پزیشکی و ئەندازیارییەکان</h4>
+                        <ul>
+                            <li>پزیشکی گشتی <span class="score">95.6+</span></li>
+                            <li>پزیشکی ددان <span class="score">94.5+</span></li>
+                            <li>دەرمانسازی <span class="score">94.0+</span></li>
+                            <li>پەرستاری <span class="score">84.0+</span></li>
+                            <li>ئەندازیاری مەعماری <span class="score">89.0+</span></li>
+                            <li>شارستانی و ڕێگاوبان <span class="score">86.0+</span></li>
+                            <li>پڕۆگرامسازی و کۆمپیوتەر <span class="score">88.5+</span></li>
+                            <li>کارەبا و مەکانیک <span class="score">85.0+</span></li>
+                        </ul>
                     </div>
-                    <button type="submit" class="btn-submit">پشکنینی بەشە گونجاوەکان</button>
-                </form>
-                <div id="gradeResultBox" class="result-box">
-                    <h3>نمرەی تۆمارکراو</h3>
-                    <div class="result-item"><strong>نمرەکەت:</strong> <span id="resGrade">--</span></div>
+
+                    <div class="college-section">
+                        <h4>کۆلێجی زانست و کشتوکاڵ</h4>
+                        <ul>
+                            <li>بەشی کۆمپیوتەر و IT <span class="score">81.0+</span></li>
+                            <li>بایۆلۆجی، کیمیا، فیزیا <span class="score">76.0+</span></li>
+                            <li>زانستە ئەندازیارییە کشتوکاڵییەکان <span class="score">65.0+</span></li>
+                            <li>دارستان و زانستی ژینگە <span class="score">63.0+</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="college-section">
+                        <h4>کۆلێجە مرۆیی و یاساییەکان</h4>
+                        <ul>
+                            <li>یاسا <span class="score">83.0+</span></li>
+                            <li>زانستە سیاسییەکان <span class="score">79.0+</span></li>
+                            <li>کارگێڕی و ئابووری (ژمێریاری، کارگێڕی کار) <span class="score">75.0+</span></li>
+                            <li>زمان (ئینگلیزی، کوردی، عەرەبی، فارسی، تورکی، فەرەنسی) <span class="score">70.0+</span></li>
+                            <li>ئەدەبیات و زانستە کۆمەڵایەتییەکان <span class="score">66.0+</span></li>
+                            <li>زانستە ئیسلامییەکان <span class="score">67.0+</span></li>
+                            <li>هونەرە جوانەکان و پەروەردەی وەرزشی <span class="score">مەرجی توانایی</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>هەولێر</span>
+                    <span class="badge">حکومی</span>
+                </div>
+            </div>
+
+            <!-- 3. زانکۆی دهۆک -->
+            <div class="card">
+                <div>
+                    <h3>زانکۆی دهۆک</h3>
+                    
+                    <div class="college-section">
+                        <h4>کۆلێجە پزیشکی و تەندروستییەکان</h4>
+                        <ul>
+                            <li>پزیشکی گشتی <span class="score">95.0+</span></li>
+                            <li>پزیشکی ددان <span class="score">94.1+</span></li>
+                            <li>دەرمانسازی <span class="score">93.5+</span></li>
+                            <li>شیکاری نەخۆشییەکان <span class="score">88.0+</span></li>
+                            <li>پەرستاری <span class="score">83.0+</span></li>
+                            <li>پزیشکی ڤێتێرنەری <span class="score">77.0+</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="college-section">
+                        <h4>ئەندازیاری و زانست</h4>
+                        <ul>
+                            <li>ئەندازیاری شارستانی و مەعماری <span class="score">84.0+</span></li>
+                            <li>ئەندازیاری پلاندانانی شار و ئاو <span class="score">81.0+</span></li>
+                            <li>کۆمپیوتەر و IT <span class="score">80.0+</span></li>
+                            <li>زانست (بایۆلۆجی، کیمیا، فیزیا، ریاضیات) <span class="score">74.0+</span></li>
+                            <li>کشتوکاڵ و دارستان <span class="score">64.0+</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="college-section">
+                        <h4>بەشە یاسایی و مرۆییەکان</h4>
+                        <ul>
+                            <li>یاسا و ڕامیاری <span class="score">80.0+</span></li>
+                            <li>کارگێڕی و ئابووری (بانک، ژمێریاری) <span class="score">72.0+</span></li>
+                            <li>زمان (ئینگلیزی، کوردی، عەرەبی، ئیتالی) <span class="score">72.0+</span></li>
+                            <li>زانستە مرۆییەکان و بنەڕەت <span class="score">66.0+</span></li>
+                            <li>زانستە ئیسلامییەکان <span class="score">65.0+</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>دهۆک</span>
+                    <span class="badge">حکومی</span>
+                </div>
+            </div>
+
+            <!-- 4. زانکۆی پۆلیتەکنیکی سلێمانی -->
+            <div class="card">
+                <div>
+                    <h3>زانکۆی پۆلیتەکنیکی سلێمانی</h3>
+                    
+                    <div class="college-section">
+                        <h4>کۆلێژە تەکنیکییەکان</h4>
+                        <ul>
+                            <li>تەکنیکی ئەندازیاری شارستانی <span class="score">79.0+</span></li>
+                            <li>تەکنیکی ئەندازیاری کۆمپیوتەر و تۆڕەکان <span class="score">81.0+</span></li>
+                            <li>تەکنیکی مکاتیرۆنیکس و ڕێگاوبان <span class="score">78.0+</span></li>
+                            <li>تەکنیکی تەندروستی (شیکاری، تیشک، هەناوی) <span class="score">89.0+</span></li>
+                            <li>پەرستاری تەکنیکی <span class="score">82.0+</span></li>
+                            <li>تەکنیکی کارگێڕی (حاسیبە، کارگێڕی کار، مارکێتینگ) <span class="score">70.0+</span></li>
+                            <li>ئەندازیاری سەرچاوەکانی ئاو <span class="score">76.0+</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="college-section">
+                        <h4>پەیمانگا تەکنیکییەکان (دوو ساڵی)</h4>
+                        <ul>
+                            <li>پەیمانگای تەکنیکی سلێمانی (گشت بەشەکان) <span class="score">62.0+</span></li>
+                            <li>پەیمانگای تەکنیکی کارگێڕی سلێمانی <span class="score">60.0+</span></li>
+                            <li>پەیمانگای تەکنیکی دوکان، چەمچەماڵ، دەربەندیخان، کەلار <span class="score">58.0+</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>سلێمانی</span>
+                    <span class="badge">تەکنیکی</span>
+                </div>
+            </div>
+
+            <!-- 5. زانکۆی پۆلیتەکنیکی هەولێر -->
+            <div class="card">
+                <div>
+                    <h3>زانکۆی پۆلیتەکنیکی هەولێر</h3>
+                    
+                    <div class="college-section">
+                        <h4>کۆلێژ و بەشە تەکنیکییەکان</h4>
+                        <ul>
+                            <li>تەکنیکی ئەندازیاری شارستانی و مەعماری <span class="score">80.0+</span></li>
+                            <li>پرۆگرامسازی و کۆمپیوتەر <span class="score">82.0+</span></li>
+                            <li>شیکاری پزیشکی تەکنیکی <span class="score">89.5+</span></li>
+                            <li>تەکنیکی کارگێڕی و ئابووری <span class="score">68.0+</span></li>
+                            <li>تەکنیکی تەندروستی و خۆراک <span class="score">75.0+</span></li>
+                            <li>کۆلێجی تەکنیکی شەقڵاوە <span class="score">64.0+</span></li>
+                            <li>پەیمانگا پیشەیی و تەکنیکییەکانی هەولێر <span class="score">60.0+</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>هەولێر</span>
+                    <span class="badge">تەکنیکی</span>
+                </div>
+            </div>
+
+            <!-- 6. زانکۆی سۆران -->
+            <div class="card">
+                <div>
+                    <h3>زانکۆی سۆران</h3>
+                    
+                    <div class="college-section">
+                        <h4>بەشە زانستی، ئەندازیاری و مرۆییەکان</h4>
+                        <ul>
+                            <li>ئەندازیاری نەوت / کۆمپیوتەر <span class="score">82.0+</span></li>
+                            <li>بەشی کۆمپیوتەر (زانست) <span class="score">78.0+</span></li>
+                            <li>بایۆلۆجی، کیمیا، فیزیا <span class="score">73.0+</span></li>
+                            <li>یاسا و پەیوەندییە نێودەوڵەتییەکان <span class="score">80.0+</span></li>
+                            <li>کارگێڕی و ئابووری <span class="score">70.0+</span></li>
+                            <li>زمان (ئینگلیزی، کوردی) <span class="score">75.0+</span></li>
+                            <li>پەروەردە و بنەڕەت <span class="score">65.0+</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>سۆران</span>
+                    <span class="badge">حکومی</span>
+                </div>
+            </div>
+
+            <!-- 7. زانکۆی کۆیە -->
+            <div class="card">
+                <div>
+                    <h3>زانکۆی کۆیە</h3>
+                    
+                    <div class="college-section">
+                        <h4>تەواوی بەشەکان</h4>
+                        <ul>
+                            <li>ئەندازیاری نەوت، شارستانی، کەمپیوتەر و مەکاری <span class="score">83.0+</span></li>
+                            <li>تەندروستی و پزیشکی <span class="score">86.0+</span></li>
+                            <li>زانست و تەکنەلۆژیا (کۆمپیوتەر، ریاضیات، بایۆلۆجی) <span class="score">74.0+</span></li>
+                            <li>بەشی یاسا <span class="score">79.0+</span></li>
+                            <li>کارگێڕی و ئابووری <span class="score">70.0+</span></li>
+                            <li>پەروەردە و بنەڕەت <span class="score">65.0+</span></li>
+                            <li>زمان (ئینگلیزی و کوردی) <span class="score">72.0+</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>کۆیە</span>
+                    <span class="badge">حکومی</span>
+                </div>
+            </div>
+
+            <!-- 8. زانکۆی ڕاپەڕین -->
+            <div class="card">
+                <div>
+                    <h3>زانکۆی ڕاپەڕین (ڕانیە)</h3>
+                    
+                    <div class="college-section">
+                        <h4>تەواوی بەشەکان</h4>
+                        <ul>
+                            <li>بەشی پەرستاری <span class="score">82.5+</span></li>
+                            <li>کۆلێجی زانست (کۆمپیوتەر، کیمیا، بایۆلۆجی) <span class="score">74.0+</span></li>
+                            <li>زمان و وەرگێڕان (ئینگلیزی) <span class="score">74.0+</span></li>
+                            <li>زمان (کوردی) <span class="score">68.0+</span></li>
+                            <li>مێژوو، جوگرافیا و کۆمەڵناسی <span class="score">64.0+</span></li>
+                            <li>پەروەردەی بنەڕەت و منداڵان <span class="score">63.0+</span></li>
+                            <li>کارگێڕی و ئابووری <span class="score">68.0+</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>ڕانیە</span>
+                    <span class="badge">حکومی</span>
+                </div>
+            </div>
+
+            <!-- 9. زانکۆی هەڵەبجە -->
+            <div class="card">
+                <div>
+                    <h3>زانکۆی هەڵەبجە</h3>
+                    
+                    <div class="college-section">
+                        <h4>تەواوی بەشەکان</h4>
+                        <ul>
+                            <li>کۆلێجی زانست (کۆمپیوتەر، بایۆلۆجی، کیمیا) <span class="score">73.0+</span></li>
+                            <li>زمان و ئەدەبیات (ئینگلیزی) <span class="score">75.0+</span></li>
+                            <li>زمان (کوردی و عەرەبی) <span class="score">67.0+</span></li>
+                            <li>پەروەردە و زانستە مرۆییەکان <span class="score">63.0+</span></li>
+                            <li>کارگێڕی و ئابووری <span class="score">68.0+</span></li>
+                            <li>بەشی وەرزش و هونەر <span class="score">مەرجی توانایی</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>هەڵەبجە</span>
+                    <span class="badge">حکومی</span>
+                </div>
+            </div>
+
+            <!-- 10. زانکۆی گەرمیان -->
+            <div class="card">
+                <div>
+                    <h3>زانکۆی گەرمیان (کەلار)</h3>
+                    
+                    <div class="college-section">
+                        <h4>تەواوی بەشەکان</h4>
+                        <ul>
+                            <li>کۆلێجی زانست (کۆمپیوتەر و ریاضیات، بایۆلۆجی) <span class="score">74.0+</span></li>
+                            <li>زمان و وەرگێڕان (ئینگلیزی) <span class="score">76.0+</span></li>
+                            <li>زمان (کوردی) <span class="score">67.0+</span></li>
+                            <li>کۆلێجی پەروەردە و بنەڕەت <span class="score">65.0+</span></li>
+                            <li>زانستە مرۆییەکان (مێژوو، جوگرافیا) <span class="score">64.0+</span></li>
+                            <li>کارگێڕی و ئابووری <span class="score">68.0+</span></li>
+                            <li>پەروەردەی وەرزشی <span class="score">مەرجی توانایی</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>کەلار / گەرمیان</span>
+                    <span class="badge">حکومی</span>
+                </div>
+            </div>
+
+            <!-- 11. زانکۆی زاخۆ -->
+            <div class="card">
+                <div>
+                    <h3>زانکۆی زاخۆ</h3>
+                    
+                    <div class="college-section">
+                        <h4>تەواوی بەشەکان</h4>
+                        <ul>
+                            <li>پزیشکی گشتی <span class="score">94.8+</span></li>
+                            <li>کۆلێجی زانست (کۆمپیوتەر، بایۆلۆجی، کیمیا، فیزیا) <span class="score">76.0+</span></li>
+                            <li>ئەندازیاری (شارستانی، نەوت، کۆمپیوتەر) <span class="score">82.0+</span></li>
+                            <li>تجارت و زانستە ئابوورییەکان <span class="score">72.0+</span></li>
+                            <li>پەروەردە و زمان (ئینگلیزی، کوردی) <span class="score">68.0+</span></li>
+                            <li>زانستە مرۆییەکان و بنەڕەت <span class="score">65.0+</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>زاخۆ</span>
+                    <span class="badge">حکومی</span>
                 </div>
             </div>
 
         </div>
     </div>
-
-    <script>
-        function switchTab(sectionId) {
-            // شاردنەوەی سەرجەم بەشەکان
-            var sections = document.querySelectorAll('.page-section');
-            sections.forEach(function(el) {
-                el.classList.remove('active');
-            });
-
-            // لابردنی active لە سەرجەم دوگمەکان
-            var buttons = document.querySelectorAll('.sidebar-links button');
-            buttons.forEach(function(el) {
-                el.classList.remove('active');
-            });
-
-            // چالاککردنی بەش و دوگمەی دیاریکراو
-            var targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-
-            if (sectionId === 'section1') {
-                document.getElementById('btnSection1').classList.add('active');
-            } else if (sectionId === 'section2') {
-                document.getElementById('btnSection2').classList.add('active');
-            }
-        }
-
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('resUni').textContent = document.getElementById('university').value || 'دیاری نەکراوە';
-            document.getElementById('resCollege').textContent = document.getElementById('college_dept').value || 'دیاری نەکراوە';
-            document.getElementById('resInst').textContent = document.getElementById('institute').value || 'دیاری نەکراوە';
-            document.getElementById('resDept').textContent = document.getElementById('ministry_dept').value || 'دیاری نەکراوە';
-            document.getElementById('resultBox').style.display = 'block';
-        });
-
-        document.getElementById('gradeForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const grade = document.getElementById('studentGrade').value;
-            document.getElementById('resGrade').textContent = grade ? grade : 'نمرە داغڵ نەکراوە';
-            document.getElementById('gradeResultBox').style.display = 'block';
-        });
-    </script>
 
 </body>
 </html>
